@@ -1,0 +1,40 @@
+<ion-content fullscreen="true">
+
+  <ion-row class="row1">
+    <ion-button [routerLink]="['/dashboard']" fill="clear" color="blanco" class="pocision2">
+      <ion-icon slot="start" name="arrow-back" ></ion-icon>
+    </ion-button>
+  </ion-row>
+
+  <ion-row class="row2">
+    <ion-slides>
+      <ion-slide>
+        <ion-button (click)="enviarDatos()" fill="outline" color="colorboton">Activar sistema de riego
+          <ion-icon name="water-outline"></ion-icon>
+        </ion-button>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-row>
+  
+</ion-content>
+
+
+<script lang="ts">
+  import { IonContent,IonGrid, IonRow } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    components: { IonContent,IonCol, IonGrid, IonRow,IonCol},
+  });
+</script>
+
+<style scoped>
+
+  ion-content::part(scroll) {
+    color: #ffffff;
+  }
+
+  
+</style>
+

@@ -1,0 +1,56 @@
+
+.Possicion{
+	padding-top: 15px;
+}
+
+
+.row1 {
+    height: 100%;
+    background: -moz-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(5, 254, 26, 0.8) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(0, 255, 4, 0.8) 100%);
+    background: linear-gradient(45deg, rgb(26, 44, 26) 0%, rgba(50, 201, 13, 0.8) 100%);
+}
+
+
+
+ion-button {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+
+.img-container {
+	display: flex;
+	justify-content: center;
+	// align-items: center; this only if you want to vertical align it to the center too
+}
+
+
+.texto{
+	text-align: center;
+	justify-content: center;
+	font-size: medium;
+	
+}
+
+.centro{
+	justify-content: center;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	display: block;
+	font-size: x-small;
+	font-weight: 800;
+}
+
+
+
+.ion-color-colorboton {
+	--ion-color-base: var(--ion-color-colorboton);
+	--ion-color-base-rgb: var(--ion-color-colorboton-rgb);
+	--ion-color-contrast: var(--ion-color-colorboton-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-colorboton-contrast-rgb);
+	--ion-color-shade: var(--ion-color-colorboton-shade);
+	--ion-color-tint: var(--ion-color-colorboton-tint);
+}

@@ -1,0 +1,241 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="nada">
+      <ion-title class="teto">Secciones</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    
+    <ion-button fill="outline" class="margen" color="colorboton" shape="round" (click)="informacion()">
+      Temperatura ambiente
+    </ion-button>
+  
+    <ion-button fill="outline" class="margen"color="colorboton" shape="round" (click)="info()">
+      Humedad del suelo    
+    </ion-button>
+    
+    <ion-button fill="outline" class="margen"color="colorboton" shape="round" (click)="Activar()">
+      Aspersor   
+    </ion-button>
+  <!--   <ion-button fill="outline" class="margen" color="colorboton" shape="round" (click)="OnLogouts()">
+      Cerrar sesion
+    </ion-button> -->
+    
+
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="nada">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="teto">Jardin Polinizador</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-card class="imgF" >
+      <ion-card-content class="imgs" *ngIf="data">
+        Sensor de Temperatura Ambiente
+        
+          
+            <ion-card-title>Humedad</ion-card-title>
+            <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Ambiente.Humedad}} %</ion-card-subtitle>
+            <ion-card-title>Temperatura </ion-card-title>
+           <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Ambiente.Temperatura_C}} C*</ion-card-subtitle>
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="imgF" >
+      <ion-card-content class="imgsi" *ngIf="data">
+          Sensor de humedad 1:
+          <ion-card-title>Humedad del Suelo</ion-card-title>
+          <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo}} %</ion-card-subtitle>
+          Sensor de humedad 2:
+          <ion-card-title>Humedad del Suelo</ion-card-title>
+          <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo2}} %</ion-card-subtitle>
+
+          
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-slides >
+      <ion-slide>
+        <div class="slide">
+          <img src="../../assets/img/Humedad-del-suelo.jpg" />
+          <h2>Humedad del suelo</h2>
+          <p>
+            Ver mas informacion sobre el <b>Suelo</b>
+          </p>
+          <ion-button fill="clear" (click)="info()">Ir <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="https://cdn0.ecologiaverde.com/es/posts/2/4/3/cual_es_la_importancia_de_la_humedad_atmosferica_1342_600.webp" />
+        <h2>Temperatura Ambiente</h2>
+        <p>
+          Ver mas informacion sobre la <b>Temperatura Ambiente</b>
+            
+          
+        </p>
+        <ion-button fill="clear" (click)="informacion()">Ir <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+
+      </ion-slide>
+      <ion-slide>
+        <img src="https://blog.homedepot.com.mx/wp-content/uploads/2019/09/riego1280x720.jpg" />
+        <h2>Riego</h2>
+        <p>
+          Activacion del <b>Riego</b>
+            
+          
+        </p>
+        <ion-button fill="clear" (click)="Activar()">Ir <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+
+      </ion-slide>
+
+    </ion-slides>
+
+  </ion-content>
+</div>
+
+<script lang="ts">
+  import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+  import { IonSlides, IonSlide } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+
+
+  export default defineComponent({
+    components: { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSlides, IonSlide},
+    setup() {
+    // Optional parameters to pass to the swiper instance. See https://swiperjs.com/swiper-api for valid options.
+    const slideOpts = {
+      initialSlide: 1,
+      speed: 400
+    };
+    return { slideOpts }
+  }
+  
+  });
+</script>
+
+<style scoped>
+  ion-card {
+    background: -moz-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(5, 254, 26, 0.8) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(0, 255, 4, 0.8) 100%);
+    background: linear-gradient(45deg, rgb(26, 44, 26) 0%, rgba(50, 201, 13, 0.8) 100%);
+
+    --color: #ffffff;
+
+  } 
+
+  ion-card-title {
+    --color: #52ffe4;
+  }
+
+  ion-card-subtitle {
+    --color: #d1fff8;
+  }
+</style>
+
+<!-- 
+<ion-content class="ion-padding" >
+    <ion-toolbar color="nada">
+      <ion-title class="teto">Jardin Polinizador</ion-title>
+
+    </ion-toolbar>
+
+    
+    <ion-card class="imgF" >
+      <ion-card-content class="imgs" *ngIf="data">
+        Sensor de Temperatura Ambiente
+        
+          
+            <ion-card-title>Humedad</ion-card-title>
+            <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Ambiente.Humedad}}</ion-card-subtitle>
+            <ion-card-title>Temperatura </ion-card-title>
+           <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Ambiente.Temperatura_C}} C*</ion-card-subtitle>
+           
+        
+      </ion-card-content>
+    </ion-card>
+    <ion-card class="imgF" >
+      <ion-card-content class="imgsi" *ngIf="data">
+          Sensor de humedad 1:
+          <ion-card-title>Humedad del Suelo</ion-card-title>
+          <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo}}</ion-card-subtitle>
+          Sensor de humedad 2:
+          <ion-card-title>Humedad del Suelo</ion-card-title>
+          <ion-card-subtitle>Actual: {{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo2}}</ion-card-subtitle>
+          
+      </ion-card-content>
+    </ion-card>
+    <ion-slides >
+      <ion-slide>
+        <div class="slide">
+          <img src="../../assets/img/Humedad-del-suelo.jpg" />
+          <h2>Humedad del suelo</h2>
+          <p>
+            Ver mas informacion sobre el <b>Suelo</b>
+          </p>
+          <ion-button fill="clear" (click)="info()">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="https://cdn0.ecologiaverde.com/es/posts/2/4/3/cual_es_la_importancia_de_la_humedad_atmosferica_1342_600.webp" />
+        <h2>Temperatura Ambiente</h2>
+        <p>
+          Ver mas informacion sobre la <b>Temperatura Ambiente</b>
+            
+          
+        </p>
+        <ion-button fill="clear" (click)="informacion()">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+
+      </ion-slide>
+
+    </ion-slides>
+  </ion-content>
+
+
+<script lang="ts">
+  import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+  import { IonSlides, IonSlide } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+
+
+  export default defineComponent({
+    components: { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,IonSlides, IonSlide},
+    setup() {
+    // Optional parameters to pass to the swiper instance. See https://swiperjs.com/swiper-api for valid options.
+    const slideOpts = {
+      initialSlide: 1,
+      speed: 400
+    };
+    return { slideOpts }
+  }
+  
+  });
+</script>
+
+<style scoped>
+  /* ion-card {
+    background: -moz-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(5, 254, 26, 0.8) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(19, 117, 39) 0%, rgba(0, 255, 4, 0.8) 100%);
+    background: linear-gradient(45deg, rgb(26, 44, 26) 0%, rgba(50, 201, 13, 0.8) 100%);
+
+    --color: #ffffff;
+
+  } */
+
+  ion-card-title {
+    --color: #52ffe4;
+  }
+
+  ion-card-subtitle {
+    --color: #d1fff8;
+  }
+</style> -->

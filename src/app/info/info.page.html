@@ -1,0 +1,71 @@
+<ion-content fullscreen="true">
+  <ion-row class="row1">
+    <ion-button [routerLink]="['/dashboard']" fill="clear" color="blanco" class="pocision2">
+      <ion-icon slot="start" name="arrow-back" ></ion-icon>
+    </ion-button>
+  </ion-row>
+
+  <ion-row class="row2">
+    <ion-slides>
+      <ion-slide>
+        <div class="slide" *ngIf="data" >
+          <h2>Humedad del suelo : 1</h2>
+          <p>
+              Humedad Actual: <b>{{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo}} %</b>
+              
+          </p>
+          Siguiente <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slide" *ngIf="data">
+          <h2>Humedad del suelo : 2</h2>
+          <p>
+            Humedad Actual: <b>{{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo2}} %</b>
+            
+          
+          </p>
+          Siguiente <ion-icon slot="end" name="arrow-forward"></ion-icon>
+
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <div class="slide" *ngIf="data">
+          <h2>Humedad del suelo : 3</h2>
+          <p>
+            Humedad Actual: <b>{{data.Sensor_de_Humedad_Suelo.Huemdad_del_Suelo3}} %</b>
+
+          </p>
+          <ion-icon slot="end" name="arrow-back"></ion-icon> Regresar
+
+
+        </div>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-row>
+  
+</ion-content>
+
+
+<script lang="ts">
+  import { IonContent,IonGrid, IonRow } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    components: { IonContent,IonCol, IonGrid, IonRow,IonCol},
+  });
+</script>
+
+<style scoped>
+
+  ion-content::part(scroll) {
+    color: #ffffff;
+  }
+
+  
+</style>
+
